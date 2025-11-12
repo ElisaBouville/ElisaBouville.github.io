@@ -159,7 +159,34 @@ footer{margin-top:24px;padding:18px;text-align:center;color:var(--muted)}
       <section id="testimonials" style="margin-top:18px">
         <h3 class="section-title">Avis patients</h3>
         <div class="testimonials">
- <script>
+      </section>
+
+      <section id="contact" style="margin-top:18px">
+        <h3 class="section-title">Contact & accès</h3>
+        <div class="info-grid">
+          <div class="contact-card">
+            <p><strong>Adresse :</strong> 20 Rue Jules Verne, 80410 Cayeux-sur-Mer</p>
+            <p><strong>Téléphone :</strong> <a href="tel:+33600000000">06.99.20.87.42</a></p>
+            <p><strong>Email :</strong> <a href="mailto:elisa.bouville.osteo@gmail.com">elisa.bouville.osteo@gmail.com</a></p>
+            <p><strong>Prise de RDV :</strong> <a class="btn" href="https://www.doctolib.fr/osteopathe/cayeux-sur-mer/elisa-bouville" target="_blank" rel="noopener">Réserver via Doctolib</a></p>
+          </div>
+          <div class="contact-card">
+            <strong>Plan d'accès</strong>
+            <iframe src="https://www.google.com/maps?q=20+Rue+Jules+Verne+Cayeux-sur-Mer&output=embed" style="width:100%;height:220px;border:0;margin-top:8px;border-radius:8px;"></iframe>
+            <p style="margin-top:8px;color:var(--muted);font-size:13px">Stationnement à proximité — cabinet accessible.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+    
+    <footer>
+      <div>© <span id="year"></span> Elisa Bouville — Ostéopathe D.O. • Cayeux‑sur‑Mer</div>
+      <div style="margin-top:8px"><a href="https://www.facebook.com" target="_blank" rel="noopener">Facebook</a> • <a href="https://fr.linkedin.com/" target="_blank" rel="noopener">LinkedIn</div>
+    </footer>
+  </div>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+   <script>
     // Fonction pour récupérer les avis Google
     async function fetchGoogleReviews() {
         const accountId = '245146188399-j1divl9hlut04dfq6dv99ck56ssfh8tm'; // Remplacez si nécessaire
@@ -225,31 +252,5 @@ footer{margin-top:24px;padding:18px;text-align:center;color:var(--muted)}
 
         </div>
       </section>
-
-      <section id="contact" style="margin-top:18px">
-        <h3 class="section-title">Contact & accès</h3>
-        <div class="info-grid">
-          <div class="contact-card">
-            <p><strong>Adresse :</strong> 20 Rue Jules Verne, 80410 Cayeux-sur-Mer</p>
-            <p><strong>Téléphone :</strong> <a href="tel:+33600000000">06.99.20.87.42</a></p>
-            <p><strong>Email :</strong> <a href="mailto:elisa.bouville.osteo@gmail.com">elisa.bouville.osteo@gmail.com</a></p>
-            <p><strong>Prise de RDV :</strong> <a class="btn" href="https://www.doctolib.fr/osteopathe/cayeux-sur-mer/elisa-bouville" target="_blank" rel="noopener">Réserver via Doctolib</a></p>
-          </div>
-          <div class="contact-card">
-            <strong>Plan d'accès</strong>
-            <iframe src="https://www.google.com/maps?q=20+Rue+Jules+Verne+Cayeux-sur-Mer&output=embed" style="width:100%;height:220px;border:0;margin-top:8px;border-radius:8px;"></iframe>
-            <p style="margin-top:8px;color:var(--muted);font-size:13px">Stationnement à proximité — cabinet accessible.</p>
-          </div>
-        </div>
-      </section>
-    </main>
-    
-    <footer>
-      <div>© <span id="year"></span> Elisa Bouville — Ostéopathe D.O. • Cayeux‑sur‑Mer</div>
-      <div style="margin-top:8px"><a href="https://www.facebook.com" target="_blank" rel="noopener">Facebook</a> • <a href="https://fr.linkedin.com/" target="_blank" rel="noopener">LinkedIn</div>
-    </footer>
-  </div>
-
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
