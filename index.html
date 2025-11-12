@@ -41,7 +41,7 @@ margin-top: 10px;
 .card h3{margin:0 0 6px}
 .card p{margin:0;color:var(--muted)}
 
-.aside img{width:50%;border-radius:10px;box-shadow:0 10px 20px rgba(10,20,25,0.06);display:center}
+.aside img{width:70%;border-radius:10px;box-shadow:0 10px 20px rgba(10,20,25,0.06);display:center}
 
 .section-title{font-size:20px;color:var(--navy);margin-bottom:8px}
 
@@ -159,9 +159,70 @@ footer{margin-top:24px;padding:18px;text-align:center;color:var(--muted)}
       <section id="testimonials" style="margin-top:18px">
         <h3 class="section-title">Avis patients</h3>
         <div class="testimonials">
-          <div class="testimonial"><strong>Marie L.</strong> — "Très professionnelle, a aidé mon bébé à mieux dormir. Très douce."</div>
-          <div class="testimonial"><strong>Paul D.</strong> — "Suivi efficace après ma chirurgie, mobilisation progressive et conseils pratiques."</div>
-          <div class="testimonial"><strong>Anne R.</strong> — "Mes douleurs lombaires ont nettement diminué. Accueil chaleureux."</div>
+ <script>
+    // Fonction pour récupérer les avis Google
+    async function fetchGoogleReviews() {
+        const accountId = '245146188399-j1divl9hlut04dfq6dv99ck56ssfh8tm'; // Remplacez si nécessaire
+        const locationId = 'ChIJG-0Ho2bj3UcRreXGxuxEgG0'; // Remplacez si nécessaire
+        const apiKey = 'AIzaSyChy0L-4hkIWRgZL-mLZT4bTTjGMYZqBnw'; // Remplacez par votre clé API valide
+
+        const url = `https://mybusiness.googleapis.com/v4/accounts/${accountId}/locations/${locationId}/reviews`;
+
+        try {
+            const response = await fetch(url, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${apiKey}`,
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error(`Erreur HTTP! Statut: ${response.status}`);
+            }
+
+            const data = await response.json();
+
+            // Vérifie si des avis sont présents
+            if (data.reviews && data.reviews.length > 0) {
+                const filteredReviews = data.reviews.filter(review => review.starRating >= 4);
+                displayReviews(filteredReviews);
+            } else {
+                console.log("Aucun avis trouvé ou la structure de la réponse est inattendue.");
+                document.getElementById('avis-container').innerHTML = "<p>Aucun avis 4 étoiles ou plus pour le moment.</p>";
+            }
+        } catch (error) {
+            console.error("Erreur lors de la récupération des avis :", error);
+            document.getElementById('avis-container').innerHTML = "<p>Impossible de charger les avis pour le moment. Veuillez réessayer plus tard.</p>";
+        }
+    }
+
+    // Fonction pour afficher les avis
+    function displayReviews(reviews) {
+        const container = document.getElementById('avis-container');
+        if (!container) {
+            console.error("Le conteneur pour les avis n'existe pas.");
+            return;
+        }
+
+        if (reviews.length === 0) {
+            container.innerHTML = "<p>Aucun avis 4 étoiles ou plus pour le moment.</p>";
+            return;
+        }
+
+        container.innerHTML = reviews.map(review =>
+            `<div class="avis-card">
+                <div class="stars">${'★'.repeat(review.starRating || 0)}</div>
+                <p>"${review.comment || 'Avis sans commentaire'}"</p>
+                <small>- ${review.reviewer ? review.reviewer.displayName : 'Patient satisfait'}</small>
+            </div>`
+        ).join('');
+    }
+
+    // Appel de la fonction au chargement de la page
+    window.addEventListener('DOMContentLoaded', fetchGoogleReviews);
+</script>
+
         </div>
       </section>
 
