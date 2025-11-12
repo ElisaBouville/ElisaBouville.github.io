@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Elisa Bouville — Ostéopathe à Cayeux‑sur‑Mer</title>
-<meta name="description" content="Ostéopathe D.O. à Cayeux‑sur‑Mer — pédiatrie, gériatrie, rééducation, femmes enceintes. Prendre RDV sur Doctolib." />
+<title>Elisa Bouville — Ostéopathe à Cayeux-sur-Mer</title>
+<meta name="description" content="Ostéopathe D.O. à Cayeux-sur-Mer — pédiatrie, gériatrie, rééducation, femmes enceintes. Prendre RDV sur Doctolib." />
 <style>
 :root{
   --bg:#fbfcfb; --navy:#12364a; --muted:#6b7680; --accent:#9ccfc2; --coral:#f2c8b6; --card-radius:14px;
@@ -13,26 +13,22 @@
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--navy);line-height:1.2}
 .container{max-width:1100px;margin:0 auto;padding:20px}
-.header{display:flex;align-items:center;gap:16px;padding:18px 0}
+.header{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
 .logo{display:flex;align-items:center;gap:12px}
 .logo img{width:100px;height:100px;object-fit:cover;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.08)}
 .brand h1{margin:0;font-size:20px;letter-spacing:1px}
+.brand h2{margin:0;font-size:16px;color:var(--muted)}
 .brand p{margin:0;color:var(--muted);font-size:14px}
-.cta {margin-left:auto;display:flex-end;gap:10px;align-items:flex;justify-content:flex-end}
-.cta-buttons {
-display: flex;
-justify-content: flex-end; /* alignés à droite */
-gap: 12px; /* petit espace entre eux */
-margin-top: 10px;
-}
+.cta{display:flex;gap:12px}
 .btn{background:var(--navy);color:#fff;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700;box-shadow:0 8px 20px rgba(18,54,74,0.12)}
 .btn.secondary{background:transparent;color:var(--navy);border:2px solid var(--navy)}
+a{text-decoration:none;color:inherit} /* pas de soulignage ni de bleu */
 
 .nav{background:linear-gradient(90deg, rgba(156,207,194,0.12), rgba(242,200,182,0.06));padding:12px;border-radius:12px;margin-bottom:18px;display:flex;gap:12px;flex-wrap:wrap}
 .nav a{color:var(--navy);text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:600}
 .nav a.cta-link{background:var(--accent);color:var(--navy)}
 
-.hero{display:grid;grid-template-columns:1fr 420px;gap:24px;align-items:center;margin-bottom:10px}
+.hero{display:grid;grid-template-columns:1fr 420px;gap:24px;align-items:start;margin-bottom:10px}
 .hero-card{background:#fff;padding:22px;border-radius:var(--card-radius);box-shadow:0 10px 30px rgba(10,20,25,0.05)}
 .hero h2{margin:0 0 10px;font-size:28px}
 .lead{color:var(--muted);margin-bottom:12px}
@@ -41,10 +37,9 @@ margin-top: 10px;
 .card h3{margin:0 0 6px}
 .card p{margin:0;color:var(--muted)}
 
-.aside img{width:70%;border-radius:10px;box-shadow:0 10px 20px rgba(10,20,25,0.06);display:center}
+.aside img{width:100%;border-radius:10px;box-shadow:0 10px 20px rgba(10,20,25,0.06);display:block;margin:0 auto}
 
 .section-title{font-size:20px;color:var(--navy);margin-bottom:8px}
-
 .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
 .contact-card{padding:16px;border-radius:12px;background:#fff;box-shadow:0 8px 20px rgba(10,20,25,0.04)}
 
@@ -52,12 +47,9 @@ margin-top: 10px;
 .testimonial{background:#fff;padding:12px;border-radius:10px;box-shadow:0 6px 18px rgba(10,20,25,0.04)}
 
 footer{margin-top:24px;padding:18px;text-align:center;color:var(--muted)}
-  
-/* responsive */
 @media(max-width:980px){
-  .hero{grid-template-columns:1fr;padding:0}
+  .hero{grid-template-columns:1fr}
   .info-grid{grid-template-columns:1fr}
-  .cta{margin-left:0}
 }
 </style>
 </head>
@@ -69,96 +61,76 @@ footer{margin-top:24px;padding:18px;text-align:center;color:var(--muted)}
         <div class="brand">
           <h1>Elisa Bouville</h1>
           <h2>Ostéopathe D.O.</h2>
-          <p>Cayeux‑sur‑Mer - Friville-Escarbotin</p>
+          <p>Cayeux-sur-Mer - Friville-Escarbotin</p>
         </div>
+      </div>
       <div class="cta">
         <a class="btn" href="https://www.doctolib.fr/osteopathe/cayeux-sur-mer/elisa-bouville" rel="noopener">Prendre RDV</a>
         <a class="btn secondary" href="#contact">Contact</a>
       </div>
     </header>
 
-    <nav class="nav" role="navigation" aria-label="Menu principal">
+    <nav class="nav">
       <a href="#home">Accueil</a>
       <a href="#about">À propos</a>
-      <a href="#domains">Domaines d'interventions</a>
+      <a href="#domains">Domaines d'intervention</a>
       <a href="#testimonials">Avis patients</a>
     </nav>
+
     <main>
       <section id="home" class="hero">
         <div class="hero-card">
           <h2>Ostéopathie adaptée et personnalisée</h2>
-          <p class="lead">Consultations pour nourrissons, enfants, adultes, seniors, femmes enceintes et sportifs. Approche globale axée sur la prévention, la rééducation et le bien‑être fonctionnel.</p>
-          <div class="services" aria-hidden="false">
-            <div class="card">
-              <h3>Pédiatrie</h3>
-              <p>Prise en charge du nourrisson et de l'enfant.</p>
-            </div>
-            <div class="card">
-              <h3>Gériatrie</h3>
-              <p>Soins adaptés en cabinet ou dans un établissement de santé.</p>
-            </div>
-            <div class="card">
-              <h3>Rééducation</h3>
-              <p>Post-opératoire et immobilisation moyenne/longue durée.</p>
-            </div>
-            <div class="card">
-              <h3>Femmes enceintes</h3>
-              <p>Accompagnement pendant et après la grossesse.</p>
-            </div>
-            <div class="card">
-              <h3>Suivi sportif</h3>
-              <p>Prise en charge et suivi adapté à chaque projet.</p>
-            </div>
-            <div class="card">
-              <h3>Intervention en entreprises</h3>
-              <p>Sensibilisation et prévention de santé pour le personnel.</p>
-              </div>
-            </div>
-        </div>
-            <aside class="aside">
-              <img src="image 5.png" alt="image 5.PNG">
-              <div style="margin-top:10px;background:#fff;padding:10px;border-radius:8px;box-shadow:0 8px 20px rgba(10,20,25,0.04)">
-              <h3>Horaires</h3>
-              <div class="muted"><h3>Cayeux-Sur-Mer:</h3><br>Lundi - Mercredi - Jeudi - Vendredi : 09:00 - 19:00<br>Samedi : 09:00 - 13:00<br><h3>Frivilles-Esacrbotin :</h3><br> Mardi : 09:00 - 19:00 <br> Sur rendez-vous uniquement</div>
+          <p class="lead">Consultations pour nourrissons, enfants, adultes, seniors, femmes enceintes et sportifs. Approche globale axée sur la prévention, la rééducation et le bien-être fonctionnel.</p>
+          <div class="services">
+            <div class="card"><h3>Pédiatrie</h3><p>Prise en charge du nourrisson et de l'enfant.</p></div>
+            <div class="card"><h3>Gériatrie</h3><p>Soins adaptés en cabinet ou en établissement de santé.</p></div>
+            <div class="card"><h3>Rééducation</h3><p>Post-opératoire et immobilisation prolongée.</p></div>
+            <div class="card"><h3>Femmes enceintes</h3><p>Accompagnement pendant et après la grossesse.</p></div>
+            <div class="card"><h3>Suivi sportif</h3><p>Prise en charge adaptée à chaque projet.</p></div>
+            <div class="card"><h3>Entreprises</h3><p>Prévention et bien-être du personnel.</p></div>
           </div>
-            <div style="margin-top:12px"><a class="btn" href="https://www.doctolib.fr/osteopathe/cayeux-sur-mer/elisa-bouville" target="_blank" rel="noopener">Réserver une séance</a></div>
+        </div>
+
+        <aside class="aside">
+          <img src="image 5.png" alt="Photo du cabinet">
+          <div style="margin-top:10px;background:#fff;padding:10px;border-radius:8px;box-shadow:0 8px 20px rgba(10,20,25,0.04)">
+            <h3>Horaires</h3>
+            <p class="muted">
+              <strong>Cayeux-Sur-Mer :</strong><br>
+              Lundi - Mercredi - Jeudi - Vendredi : 09:00 - 19:00<br>
+              Samedi : 09:00 - 13:00<br><br>
+              <strong>Friville-Escarbotin :</strong><br>
+              Mardi : 09:00 - 19:00<br>
+              Sur rendez-vous uniquement
+            </p>
+          </div>
         </aside>
       </section>
 
       <section id="about" class="hero-card" style="margin-top:10px">
-        <h3 class="section-title">Mon approche </h3>
-        <p class="muted"> " Je suis une ostéopathe diplômée D.O. avec formations complémentaires sur différents profils de patient. Je procède par approche centrée sur vous, patient, en priorisant la sécurité et la prévention. J'intervient auprés de personnes de tout les âges, du nourisson au sénior.J'accompagne également les femmes enceintes pendant et aprés leur grossesses"</p>
+        <h3 class="section-title">Mon approche</h3>
+        <p class="muted">Je suis une ostéopathe diplômée D.O. avec des formations complémentaires selon différents profils de patients. Mon approche est centrée sur la sécurité, la prévention et l’écoute, du nourrisson au sénior, ainsi que pour les femmes enceintes avant et après la grossesse.</p>
       </section>
 
       <section id="domains" style="margin-top:10px">
-        <h3 class="section-title">Domaines d'intervention</h3>
+        <h3 class="section-title">Domaines d’intervention</h3>
         <div class="info-grid">
-          <div class="card">
-            <h4>Pédiatrie</h4>
-            <p class="muted">Soins doux pour nourrissons et enfants : coliques, torticolis, troubles du sommeil. L'objectif est d'accompagner le développement et d'apaiser les tensions.</p>
-          </div>
-          <div class="card">
-            <h4>Gériatrie</h4>
-            <p class="muted">Interventions visant à maintenir ou améliorer la mobilité, réduire les douleurs chroniques et prévenir les chutes chez les personnes âgées.</p>
-          </div>
-          <div class="card">
-            <h4>Rééducation</h4>
-            <p class="muted">Suivi post-opératoire, rééducation fonctionnelle et accompagnement pour la reprise d'activité.</p>
-          </div>
-          <div class="card">
-            <h4>Femmes enceintes</h4>
-            <p class="muted">Prise en charge pendant et après la grossesse. Le suivis à pour but de soulager les nausées et les douleurs, et de préparer au mieux l'accouchement</p>
-          </div>
-           <div class="card">
-            <h4>Suivis sportifs</h4>
-            <p class="muted">Séances adaptés au patient et à son projet sportif. Accompagnement régulier et personnalisé</p>
-          </div>
+          <div class="card"><h4>Pédiatrie</h4><p class="muted">Soins doux pour nourrissons et enfants : coliques, torticolis, troubles du sommeil.</p></div>
+          <div class="card"><h4>Gériatrie</h4><p class="muted">Maintenir la mobilité et réduire les douleurs chroniques liées à l’âge.</p></div>
+          <div class="card"><h4>Rééducation</h4><p class="muted">Suivi post-opératoire et reprise fonctionnelle progressive.</p></div>
+          <div class="card"><h4>Femmes enceintes</h4><p class="muted">Soulager les douleurs et préparer au mieux l’accouchement.</p></div>
+          <div class="card"><h4>Suivi sportif</h4><p class="muted">Séances adaptées et accompagnement personnalisé.</p></div>
         </div>
       </section>
 
       <section id="testimonials" style="margin-top:18px">
         <h3 class="section-title">Avis patients</h3>
         <div class="testimonials">
+          <!-- Widget Google Reviews -->
+          <div class="elfsight-app-XXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" data-elfsight-app-lazy></div>
+          <script src="https://static.elfsight.com/platform/platform.js" async></script>
+        </div>
       </section>
 
       <section id="contact" style="margin-top:18px">
@@ -166,7 +138,7 @@ footer{margin-top:24px;padding:18px;text-align:center;color:var(--muted)}
         <div class="info-grid">
           <div class="contact-card">
             <p><strong>Adresse :</strong> 20 Rue Jules Verne, 80410 Cayeux-sur-Mer</p>
-            <p><strong>Téléphone :</strong> <a href="tel:+33600000000">06.99.20.87.42</a></p>
+            <p><strong>Téléphone :</strong> <a href="tel:+33699208742">06.99.20.87.42</a></p>
             <p><strong>Email :</strong> <a href="mailto:elisa.bouville.osteo@gmail.com">elisa.bouville.osteo@gmail.com</a></p>
             <p><strong>Prise de RDV :</strong> <a class="btn" href="https://www.doctolib.fr/osteopathe/cayeux-sur-mer/elisa-bouville" target="_blank" rel="noopener">Réserver via Doctolib</a></p>
           </div>
@@ -178,79 +150,16 @@ footer{margin-top:24px;padding:18px;text-align:center;color:var(--muted)}
         </div>
       </section>
     </main>
-    
+
     <footer>
-      <div>© <span id="year"></span> Elisa Bouville — Ostéopathe D.O. • Cayeux‑sur‑Mer</div>
-      <div style="margin-top:8px"><a href="https://www.facebook.com" target="_blank" rel="noopener">Facebook</a> • <a href="https://fr.linkedin.com/" target="_blank" rel="noopener">LinkedIn</div>
+      <div>© <span id="year"></span> Elisa Bouville — Ostéopathe D.O. • Cayeux-sur-Mer</div>
+      <div style="margin-top:8px">
+        <a href="https://www.facebook.com" target="_blank" rel="noopener">Facebook</a> • 
+        <a href="https://fr.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
     </footer>
   </div>
 
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-   <script>
-    // Fonction pour récupérer les avis Google
-    async function fetchGoogleReviews() {
-        const accountId = '245146188399-j1divl9hlut04dfq6dv99ck56ssfh8tm'; // Remplacez si nécessaire
-        const locationId = 'ChIJG-0Ho2bj3UcRreXGxuxEgG0'; // Remplacez si nécessaire
-        const apiKey = 'AIzaSyChy0L-4hkIWRgZL-mLZT4bTTjGMYZqBnw'; // Remplacez par votre clé API valide
-
-        const url = `https://mybusiness.googleapis.com/v4/accounts/${accountId}/locations/${locationId}/reviews`;
-
-        try {
-            const response = await fetch(url, {
-                method: 'GET',
-                headers: {
-                    'Authorization': `Bearer ${apiKey}`,
-                    'Content-Type': 'application/json'
-                }
-            });
-
-            if (!response.ok) {
-                throw new Error(`Erreur HTTP! Statut: ${response.status}`);
-            }
-
-            const data = await response.json();
-
-            // Vérifie si des avis sont présents
-            if (data.reviews && data.reviews.length > 0) {
-                const filteredReviews = data.reviews.filter(review => review.starRating >= 4);
-                displayReviews(filteredReviews);
-            } else {
-                console.log("Aucun avis trouvé ou la structure de la réponse est inattendue.");
-                document.getElementById('avis-container').innerHTML = "<p>Aucun avis 4 étoiles ou plus pour le moment.</p>";
-            }
-        } catch (error) {
-            console.error("Erreur lors de la récupération des avis :", error);
-            document.getElementById('avis-container').innerHTML = "<p>Impossible de charger les avis pour le moment. Veuillez réessayer plus tard.</p>";
-        }
-    }
-
-    // Fonction pour afficher les avis
-    function displayReviews(reviews) {
-        const container = document.getElementById('avis-container');
-        if (!container) {
-            console.error("Le conteneur pour les avis n'existe pas.");
-            return;
-        }
-
-        if (reviews.length === 0) {
-            container.innerHTML = "<p>Aucun avis 4 étoiles ou plus pour le moment.</p>";
-            return;
-        }
-
-        container.innerHTML = reviews.map(review =>
-            `<div class="avis-card">
-                <div class="stars">${'★'.repeat(review.starRating || 0)}</div>
-                <p>"${review.comment || 'Avis sans commentaire'}"</p>
-                <small>- ${review.reviewer ? review.reviewer.displayName : 'Patient satisfait'}</small>
-            </div>`
-        ).join('');
-    }
-
-    // Appel de la fonction au chargement de la page
-    window.addEventListener('DOMContentLoaded', fetchGoogleReviews);
-</script>
-
-        </div>
-      </section>
 </body>
 </html>
