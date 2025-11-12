@@ -36,7 +36,15 @@ a{text-decoration:none;color:inherit} /* pas de soulignage ni de bleu */
 .card{background:#fff;padding:16px;border-radius:12px;box-shadow:0 8px 20px rgba(10,20,25,0.04)}
 .card h3{margin:0 0 6px}
 .card p{margin:0;color:var(--muted)}
-
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+.card-link:hover .card {
+  background: #f8f9fa;
+  transition: background 0.2s ease;
+}
 .aside img{width:100%;border-radius:10px;box-shadow:0 10px 20px rgba(10,20,25,0.06);display:block;margin:0 auto}
 
 .section-title{font-size:20px;color:var(--navy);margin-bottom:8px}
@@ -75,6 +83,10 @@ footer{margin-top:24px;padding:18px;text-align:center;color:var(--muted)}
       <a href="#about">À propos</a>
       <a href="#domains">Domaines d'intervention</a>
       <a href="#testimonials">Avis patients</a>
+      <a href="entreprise.html" class="card-link">Ostéopathie en entreprise </a>
+   
+  </div>
+</a>
     </nav>
 
     <main>
