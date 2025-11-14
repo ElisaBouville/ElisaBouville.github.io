@@ -49,13 +49,37 @@
         .g-recaptcha {
             margin: 15px 0;
         }
+        #message {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 4px;
+            text-align: center;
+            display: none;
+        }
+        #message.success {
+            background-color: #dff0d8;
+            color: #3c763d;
+            display: block;
+        }
+        #message.error {
+            background-color: #f2dede;
+            color: #a94442;
+            display: block;
+        }
     </style>
 </head>
 <body>
     <h2>Demande de renseignement</h2>
-    <form action="#" method="post">
+    <form id="contactForm" action="envoyer.php" method="post">
         <!-- Champ CSRF (à générer côté serveur) -->
-        <input type="hidden" name="_csrf" value="TON_JETON_CSRF_ICI">
+        <?php
+        // Génération d'un jeton CSRF côté serveur (exemple en PHP)
+        session_start();
+        if (empty($_SESSION['csrf_token'])) {
+            $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+        }
+        ?>
+        <input type="hidden" name="_csrf" value="<?php echo $_SESSION['csrf_token']; ?>">
 
         <div class="form-group">
             <label for="nomEntreprise">Nom de l'entreprise :</label>
@@ -96,5 +120,45 @@
 
         <button type="submit">Envoyer</button>
     </form>
+
+    <div id="message"></div>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const form = e.target;
+            const messageDiv = document.getElementById('message');
+
+            // Vérification du reCAPTCHA
+            const response = grecaptcha.getResponse();
+            if (response.length === 0) {
+                messageDiv.textContent = "Veuillez compléter le reCAPTCHA.";
+                messageDiv.className = "error";
+                return;
+            }
+
+            // Soumission du formulaire
+            fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    messageDiv.textContent = "Votre message a été envoyé avec succès !";
+                    messageDiv.className = "success";
+                    form.reset();
+                    grecaptcha.reset();
+                } else {
+                    messageDiv.textContent = data.message || "Une erreur est survenue.";
+                    messageDiv.className = "error";
+                }
+            })
+            .catch(error => {
+                messageDiv.textContent = "Une erreur est survenue.";
+                messageDiv.className = "error";
+            });
+        });
+    </script>
 </body>
 </html>
