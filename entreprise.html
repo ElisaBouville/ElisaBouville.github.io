@@ -85,7 +85,6 @@
       font-size: 22px;
       font-weight: bold;
     }
-    /* Alignement texte + image côte à côte */
     .row-equal {
       display: flex;
       flex-direction: row;
@@ -115,7 +114,6 @@
         min-height: auto;
       }
     }
-    /* Contact */
     .contact-grid {
       display: flex;
       flex-direction: row;
@@ -151,10 +149,25 @@
       padding: 20px;
       color: var(--muted);
     }
-    /* Liens sans soulignement ni couleur */
     a[href^="tel:"], a[href^="mailto:"] {
       color: inherit;
       text-decoration: none;
+    }
+    /* Style pour le bouton "Me contacter" */
+    .contact-button {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 14px;
+      background: var(--navy);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      text-align: center;
+      max-width: 200px;
+    }
+    .contact-button:hover {
+      background: #0f2e3d;
     }
   </style>
 </head>
@@ -234,12 +247,15 @@
         <h3>Périmètre d'intervention</h3>
         <p><strong>Intervention dans un périmètre d'une heure autour de Cayeux-sur-Mer :</strong>
           Abbeville, Amiens, Rouen, Dieppe, Boulogne-sur-Mer, Berck, Neufchâtel-en-Bray.</p>
-        <p><strong>Téléphone :</strong> 
-        <a href="tel:+33699208742" style="text-decoration:none;color:inherit;">06.99.20.87.42</a>
-      </p>
-      <p><strong>Email :</strong> 
-        <a href="mailto:elisa.bouville.osteo@gmail.com" style="text-decoration:none;color:inherit;">elisa.bouville.osteo@gmail.com</a>
-      </p>
+        <p><strong>Téléphone :</strong>
+          <a href="tel:+33699208742">06.99.20.87.42</a>
+        </p>
+        <p><strong>Email :</strong>
+          <a href="mailto:elisa.bouville.osteo@gmail.com">elisa.bouville.osteo@gmail.com</a>
+        </p>
+        <p><strong>Formulaire :</strong>
+          <a href="formulaire.html" class="contact-button">Me contacter</a>
+        </p>
       </div>
     </div>
     <img src="image 6.png" alt="Cabinet d'ostéopathie">
