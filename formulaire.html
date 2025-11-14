@@ -5,42 +5,33 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Contact entreprise — Elisa Bouville</title>
 <style>
-  :root {
-    --bg: #ffffff;
-    --navy: #12364a;
-    --muted: #6b7680;
-    --accent: #9ccfc2;
-    --coral: #f2c8b6;
-    --radius: 14px;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  body {margin:0; background: var(--bg); color: var(--navy); line-height:1.45;}
-  .container {max-width:1050px; margin:auto; padding:20px;}
-  header {display:flex; justify-content:space-between; align-items:center; padding-bottom:20px;}
-  .logo {display:flex; align-items:center; gap:14px;}
-  .logo img {width:90px; height:90px; border-radius:12px; object-fit:cover; box-shadow:0 6px 18px rgba(0,0,0,0.08);}
-  .cta a {padding:10px 14px; border-radius:8px; text-decoration:none; font-weight:bold; border:2px solid var(--navy); color: var(--navy); background:white;}
-  .cta a:hover {background: var(--navy); color:white;}
-  h2.section-title {margin:35px 0 15px 0; font-size:22px; font-weight:bold;}
-  form.block {background:white; padding:20px; border-radius: var(--radius); box-shadow:0 6px 20px rgba(0,0,0,0.05);}
-  .form-group {margin-bottom:15px; display:flex; flex-direction:column;}
-  label {margin-bottom:5px; font-weight:bold;}
-  input, select, textarea {padding:10px; border-radius:8px; border:1px solid #ccc; font-size:14px;}
-  textarea {resize:vertical; min-height:80px;}
-  button[type="submit"] {background: var(--navy); color:white; border:none; padding:12px 18px; border-radius:8px; font-weight:bold; cursor:pointer;}
-  button[type="submit"]:hover {background:#0f2e3d;}
-  #message {margin-top:15px; font-weight:bold;}
-  #message.success {color:green;}
-  #message.error {color:red;}
-  @media (max-width:900px) {
-    .container {padding:10px;}
-  }
+:root {
+  --bg:#ffffff; --navy:#12364a; --muted:#6b7680; --accent:#9ccfc2; --coral:#f2c8b6; --radius:14px; font-family:Arial,Helvetica,sans-serif;
+}
+body {margin:0; background:var(--bg); color:var(--navy); line-height:1.45;}
+.container {max-width:1050px; margin:auto; padding:20px;}
+header {display:flex; justify-content:space-between; align-items:center; padding-bottom:20px;}
+.logo {display:flex; align-items:center; gap:14px;}
+.logo img {width:90px; height:90px; border-radius:12px; object-fit:cover; box-shadow:0 6px 18px rgba(0,0,0,0.08);}
+.cta a {padding:10px 14px; border-radius:8px; text-decoration:none; font-weight:bold; border:2px solid var(--navy); color: var(--navy); background:white;}
+.cta a:hover {background: var(--navy); color:white;}
+h2.section-title {margin:35px 0 15px 0; font-size:22px; font-weight:bold;}
+form.block {background:white; padding:20px; border-radius: var(--radius); box-shadow:0 6px 20px rgba(0,0,0,0.05);}
+.form-group {margin-bottom:15px; display:flex; flex-direction:column;}
+label {margin-bottom:5px; font-weight:bold;}
+input, select, textarea {padding:10px; border-radius:8px; border:1px solid #ccc; font-size:14px;}
+textarea {resize:vertical; min-height:80px;}
+button[type="submit"] {background: var(--navy); color:white; border:none; padding:12px 18px; border-radius:8px; font-weight:bold; cursor:pointer;}
+button[type="submit"]:hover {background:#0f2e3d;}
+#message {margin-top:15px; font-weight:bold;}
+#message.success {color:green;}
+#message.error {color:red;}
+@media(max-width:900px){.container{padding:10px;}}
 </style>
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
 <div class="container">
-  <!-- HEADER -->
   <header>
     <div class="logo">
       <img src="image 1.PNG" alt="Logo Elisa Bouville">
@@ -54,10 +45,15 @@
     </div>
   </header>
 
-  <!-- FORMULAIRE -->
   <h2 class="section-title">Formulaire de contact entreprise</h2>
   <form id="contactForm" class="block" action="envoyer.php" method="POST">
-    <input type="hidden" name="_csrf" value="<?php echo $_SESSION['csrf_token'] ?? ''; ?>">
+    <?php
+    session_start();
+    if(empty($_SESSION['csrf_token'])){
+        $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+    }
+    ?>
+    <input type="hidden" name="_csrf" value="<?php echo $_SESSION['csrf_token']; ?>">
 
     <div class="form-group">
       <label for="nomEntreprise">Nom de l'entreprise :</label>
@@ -115,26 +111,30 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
   const messageDiv = document.getElementById('message');
   const response = grecaptcha.getResponse();
 
-  if(response.length === 0) {
-    messageDiv.textContent = "Veuillez compléter le reCAPTCHA.";
-    messageDiv.className = "error";
+  if(response.length===0){
+    messageDiv.textContent="Veuillez compléter le reCAPTCHA.";
+    messageDiv.className="error";
     return;
   }
 
-  fetch(form.action, {method: 'POST', body: new FormData(form)})
-  .then(res => res.json())
-  .then(data => {
+  fetch(form.action,{method:'POST', body:new FormData(form)})
+  .then(res=>res.json())
+  .then(data=>{
     if(data.success){
-      messageDiv.textContent = "Votre message a été envoyé avec succès !";
-      messageDiv.className = "success";
+      messageDiv.textContent="Votre message a été envoyé avec succès !";
+      messageDiv.className="success";
       form.reset();
       grecaptcha.reset();
     } else {
-      messageDiv.textContent = data.message || "Une erreur est survenue.";
-      messageDiv.className = "error";
+      messageDiv.textContent=data.message||"Une erreur est survenue.";
+      messageDiv.className="error";
     }
   })
-  .catch(() => {messageDiv.textContent="Une erreur est survenue."; messageDiv.className="error";});
+  .catch(err=>{
+    messageDiv.textContent="Une erreur est survenue.";
+    messageDiv.className="error";
+    console.error(err);
+  });
 });
 </script>
 </body>
