@@ -1,98 +1,214 @@
 <!DOCTYPE html>
-<div class="form-group">
-<label for="nomEntreprise">Nom de l'entreprise :</label>
-<input type="text" id="nomEntreprise" name="nomEntreprise" required>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact entreprise — Elisa Bouville</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --navy: #12364a;
+      --muted: #6b7680;
+      --accent: #9ccfc2;
+      --coral: #f2c8b6;
+      --radius: 14px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--navy);
+      line-height: 1.45;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 20px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .logo img {
+      width: 90px;
+      height: 90px;
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    }
+    .cta a {
+      padding: 10px 14px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      border: 2px solid var(--navy);
+      color: var(--navy);
+      background: white;
+    }
+    .cta a:hover {
+      background: var(--navy);
+      color: white;
+    }
+    form {
+      background: white;
+      padding: 20px;
+      border-radius: var(--radius);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+    }
+    .form-group {
+      margin-bottom: 15px;
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input, select, textarea {
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+    button[type="submit"] {
+      background: var(--navy);
+      color: white;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button[type="submit"]:hover {
+      background: #0f2e3d;
+    }
+    #message {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    #message.success {
+      color: green;
+    }
+    #message.error {
+      color: red;
+    }
+  </style>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+<div class="container">
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <img src="image 1.PNG" alt="Logo Elisa Bouville">
+      <div>
+        <h1>ELISA BOUVILLE</h1>
+        <p>Ostéopathe D.O.<br>Cayeux-sur-Mer • Friville-Escarbotin</p>
+      </div>
+    </div>
+    <div class="cta">
+      <a href="entreprise.html">Retour</a>
+    </div>
+  </header>
+
+  <!-- FORMULAIRE -->
+  <h2 class="section-title">Formulaire de contact entreprise</h2>
+  <form id="contactForm" action="envoyer.php" method="POST">
+    <input type="hidden" name="_csrf" value="<?php echo $_SESSION['csrf_token'] ?? ''; ?>">
+    
+    <div class="form-group">
+      <label for="nomEntreprise">Nom de l'entreprise :</label>
+      <input type="text" id="nomEntreprise" name="nomEntreprise" required>
+    </div>
+
+    <div class="form-group">
+      <label for="nomContact">Nom du contact :</label>
+      <input type="text" id="nomContact" name="nomContact" required>
+    </div>
+
+    <div class="form-group">
+      <label for="fonction">Fonction :</label>
+      <input type="text" id="fonction" name="fonction" required>
+    </div>
+
+    <div class="form-group">
+      <label for="telephone">Téléphone (facultatif) :</label>
+      <input type="tel" id="telephone" name="telephone">
+    </div>
+
+    <div class="form-group">
+      <label for="mail">Mail :</label>
+      <input type="email" id="mail" name="mail" required>
+    </div>
+
+    <div class="form-group">
+      <label for="motif">Motif de la demande :</label>
+      <select id="motif" name="motif" required>
+        <option value="">-- Sélectionnez un motif --</option>
+        <option value="Formation TMS">Formation (TMS)</option>
+        <option value="Formation Gestes et Postures">Formation (Gestes et Postures)</option>
+        <option value="Séance ostéopathie">Séance d'ostéopathie en entreprise</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description de la demande (1000 caractères max) :</label>
+      <textarea id="description" name="description" maxlength="1000" required></textarea>
+    </div>
+
+    <div class="form-group">
+      <div class="g-recaptcha" data-sitekey="6LdLoAwsAAAAAPj6QvI7gGtkChFEmUcllxZOBK_l"></div>
+    </div>
+
+    <button type="submit">Envoyer</button>
+    <div id="message"></div>
+  </form>
 </div>
-
-
-<div class="form-group">
-<label for="nomContact">Nom du contact :</label>
-<input type="text" id="nomContact" name="nomContact" required>
-</div>
-
-
-<div class="form-group">
-<label for="fonction">Fonction :</label>
-<input type="text" id="fonction" name="fonction" required>
-</div>
-
-
-<div class="form-group">
-<label for="telephone">Téléphone (facultatif) :</label>
-<input type="tel" id="telephone" name="telephone">
-</div>
-
-
-<div class="form-group">
-<label for="mail">Mail :</label>
-<input type="email" id="mail" name="mail" required>
-</div>
-
-
-<div class="form-group">
-<label for="motif">Motif de la demande :</label>
-<select id="motif" name="motif" required>
-<option value="">-- Sélectionnez un motif --</option>
-<option value="Formation TMS">Formation (TMS)</option>
-<option value="Formation Gestes et Postures">Formation (Gestes et Postures)</option>
-<option value="Séance ostéopathie">Séance d'ostéopathie en entreprise</option>
-</select>
-</div>
-
-
-<div class="form-group">
-<label for="description">Description de la demande (1000 caractères max) :</label>
-<textarea id="description" name="description" maxlength="1000" required></textarea>
-</div>
-
-
-<div class="g-recaptcha" data-sitekey="6LdLoAwsAAAAAPj6QvI7gGtkChFEmUcllxZOBK_l"></div>
-
-
-<button type="submit">Envoyer</button>
-</form>
-
-
-<div id="message"></div>
-
 
 <script>
 document.getElementById('contactForm').addEventListener('submit', function(e) {
-e.preventDefault();
+  e.preventDefault();
+  const form = e.target;
+  const messageDiv = document.getElementById('message');
+  const response = grecaptcha.getResponse();
 
+  if(response.length === 0) {
+    messageDiv.textContent = "Veuillez compléter le reCAPTCHA.";
+    messageDiv.className = "error";
+    return;
+  }
 
-const form = e.target;
-const messageDiv = document.getElementById('message');
-const response = grecaptcha.getResponse();
-
-
-if (response.length === 0) {
-messageDiv.textContent = "Veuillez compléter le reCAPTCHA.";
-messageDiv.className = "error";
-return;
-}
-
-
-fetch(form.action, {
-method: 'POST',
-body: new FormData(form)
-})
-.then(response => response.json())
-.then(data => {
-if (data.success) {
-messageDiv.textContent = "Votre message a été envoyé avec succès !";
-messageDiv.className = "success";
-form.reset();
-grecaptcha.reset();
-} else {
-messageDiv.textContent = data.message || "Une erreur est survenue.";
-messageDiv.className = "error";
-}
-})
-.catch(error => {
-messageDiv.textContent = "Une erreur est survenue.";
-messageDiv.className = "error";
-});
+  fetch(form.action, {
+    method: 'POST',
+    body: new FormData(form)
+  })
+  .then(res => res.json())
+  .then(data => {
+    if(data.success) {
+      messageDiv.textContent = "Votre message a été envoyé avec succès !";
+      messageDiv.className = "success";
+      form.reset();
+      grecaptcha.reset();
+    } else {
+      messageDiv.textContent = data.message || "Une erreur est survenue.";
+      messageDiv.className = "error";
+    }
+  })
+  .catch(() => {
+    messageDiv.textContent = "Une erreur est survenue.";
+    messageDiv.className = "error";
+  });
 });
 </script>
 </body>
