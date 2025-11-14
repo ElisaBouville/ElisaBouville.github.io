@@ -87,6 +87,7 @@
       border-radius: var(--radius);
       box-shadow: 0 6px 20px rgba(0,0,0,0.05);
       margin-bottom: 20px;
+      height: 100%;
     }
 
     .section-title {
@@ -95,28 +96,59 @@
       font-weight: bold;
     }
 
-    /* --- ALIGNEMENT TEXTE + IMAGE --- */
-    .row {
+    /* NEW: alignement texte + image de même hauteur */
+    .row-equal {
       display: grid;
-      grid-template-columns: 1fr 300px;
+      grid-template-columns: 1fr 350px;
       gap: 20px;
-      align-items: center;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
+      align-items: stretch;
     }
 
-    .row img {
+    .row-equal img {
       width: 100%;
-      border-radius: 12px;
+      height: 100%;
+      max-width: 100%;
       object-fit: cover;
+      border-radius: 12px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.08);
     }
 
-    /* Contact */
+    @media (max-width: 900px) {
+      .row-equal {
+        grid-template-columns: 1fr;
+        height: auto;
+      }
+
+      .row-equal img {
+        height: auto;
+      }
+    }
+
+    /* CONTACT */
     .contact-grid {
       display: grid;
-      grid-template-columns: 1fr 300px;
+      grid-template-columns: 1fr 350px;
       gap: 20px;
-      margin-top: 10px;
+      align-items: stretch;
+    }
+
+    .contact-grid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    @media (max-width: 900px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-grid img {
+        height: auto;
+      }
     }
 
     footer {
@@ -124,13 +156,6 @@
       margin-top: 30px;
       padding: 20px;
       color: var(--muted);
-    }
-
-    @media (max-width: 900px) {
-      .row,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
     }
   </style>
 
@@ -165,11 +190,9 @@
   <!-- SEANCES EN ENTREPRISE -->
   <h2 class="section-title" id="seances">Séances d'ostéopathie en entreprise</h2>
 
-  <div class="row">
+  <div class="row-equal">
     <div class="block">
-      <p>
-        Je me déplace directement dans vos locaux pour des séances individuelles ou collectives adaptées aux besoins de vos salariés.
-      </p>
+      <p>Je me déplace directement dans vos locaux pour des séances individuelles ou collectives adaptées aux besoins de vos salariés.</p>
 
       <strong>Organisation :</strong>
       <ul>
@@ -193,11 +216,9 @@
   <!-- FORMATIONS -->
   <h2 class="section-title" id="formations">Formations et sensibilisation</h2>
 
-  <div class="row">
+  <div class="row-equal">
     <div class="block">
-      <p>
-        Des ateliers pratiques pour sensibiliser vos équipes aux bonnes postures, aux TMS et à la gestion du stress.
-      </p>
+      <p>Des ateliers pratiques pour sensibiliser vos équipes aux bonnes postures, aux TMS et à la gestion du stress.</p>
 
       <strong>Thèmes :</strong>
       <ul>
