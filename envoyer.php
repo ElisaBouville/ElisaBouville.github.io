@@ -61,7 +61,7 @@ $confirmMessage = "Bonjour,\n\nVotre demande a bien été reçue.\nNous vous ré
 $confirmHeaders = "From: no-reply@ton-domaine.com\r\n".
                   "Content-Type: text/plain; charset=UTF-8\r\n";
 
-mail($mail,$confirmSubject,$confirmMessage,$confirmHeaders);
+file_put_contents('test.txt', print_r($_POST, true));;
 
 echo json_encode(['success'=>true]);
 ?>
