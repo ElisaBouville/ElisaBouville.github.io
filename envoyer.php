@@ -9,7 +9,7 @@ if (!isset($_POST['_csrf']) || $_POST['_csrf'] !== ($_SESSION['csrf_token'] ?? '
 }
 
 // Vérification reCAPTCHA
-$recaptchaSecret = '6LfumgwsAAAAAPj6QvI7gGtkChFEmUcllxZOBK_l';
+$recaptchaSecret = '6LedsAwsAAAAALFJQ2sMSlt2dfvMtOOlunSTtUeU';
 $recaptchaResponse = $_POST['g-recaptcha-response'] ?? '';
 $verify = file_get_contents("https://www.recaptcha.net/recaptcha/api/siteverify?secret=" . $recaptchaSecret . "&response=" . $recaptchaResponse);
 $captchaSuccess = json_decode($verify);
