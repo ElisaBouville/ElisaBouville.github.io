@@ -8,13 +8,32 @@ if (!isset($_POST['_csrf']) || $_POST['_csrf'] !== ($_SESSION['csrf_token'] ?? '
     exit;
 }
 
-// Vérification du reCAPTCHA
-$recaptchaSecret = '6LfumgwsAAAAAFhEVeW_TJoQ3W_AjsYanV64NiTA';
+// Vérification du token reCAPTCHA Enterprise
+$recaptchaSecret = '6LcHmgwsAAAAALXlKXNOaepzj8HzsQ-ESIMNSjpN'; // Remplace par ta clé secrète
 $recaptchaResponse = $_POST['g-recaptcha-response'];
-$recaptchaUrl = "https://www.google.com/recaptcha/api/siteverify?secret=$recaptchaSecret&response=$recaptchaResponse";
-$recaptchaData = json_decode(file_get_contents($recaptchaUrl));
+$recaptchaUrl = "https://www.google.com/recaptcha/enterprise.js?render=6LcHmgwsAAAAALXlKXNOaepzj8HzsQ-ESIMNSjpN"=$recaptchaSecret";
 
-if (!$recaptchaData->success) {
+$recaptchaData = [
+    'event' => [
+        'token' => $recaptchaResponse,
+        'siteKey' => '6LcHmgwsAAAAALXlKXNOaepzj8HzsQ-ESIMNSjpN',
+        'expectedAction' => 'submit'
+    ]
+];
+
+$options = [
+    'http' => [
+        'header'  => "Content-type: application/json\r\n",
+        'method'  => 'POST',
+        'content' => json_encode($recaptchaData),
+    ],
+];
+
+$context  = stream_context_create($options);
+$result = file_get_contents($recaptchaUrl, false, $context);
+$recaptchaResult = json_decode($result);
+
+if (!$recaptchaResult || ($recaptchaResult->tokenProperties->valid !== true)) {
     echo json_encode(['success' => false, 'message' => 'reCAPTCHA invalide.']);
     exit;
 }
