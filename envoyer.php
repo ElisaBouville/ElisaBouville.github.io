@@ -9,7 +9,7 @@ if (!isset($_POST['_csrf']) || $_POST['_csrf'] !== ($_SESSION['csrf_token'] ?? '
 }
 
 // Vérification du reCAPTCHA
-$recaptchaSecret = 'TA_CLE_SECRETE_RECAPTCHA';
+$recaptchaSecret = '6LfumgwsAAAAAFhEVeW_TJoQ3W_AjsYanV64NiTA';
 $recaptchaResponse = $_POST['g-recaptcha-response'];
 $recaptchaUrl = "https://www.google.com/recaptcha/api/siteverify?secret=$recaptchaSecret&response=$recaptchaResponse";
 $recaptchaData = json_decode(file_get_contents($recaptchaUrl));
