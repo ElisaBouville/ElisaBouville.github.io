@@ -76,6 +76,9 @@
       border-radius: var(--radius);
       box-shadow: 0 6px 20px rgba(0,0,0,0.05);
       margin-bottom: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
     .section-title {
       margin: 35px 0 15px 0;
@@ -88,16 +91,20 @@
       flex-direction: row;
       gap: 20px;
       margin-bottom: 15px;
+      align-items: stretch;
     }
     .row-equal .content {
       flex: 1;
+      display: flex;
+      flex-direction: column;
     }
     .row-equal img {
       width: 350px;
-      height: auto;
+      min-height: 280px;
       border-radius: 12px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-      object-fit: cover;
+      object-fit: contain;
+      background-color: #f9f9f9;
     }
     @media (max-width: 900px) {
       .row-equal {
@@ -105,6 +112,7 @@
       }
       .row-equal img {
         width: 100%;
+        min-height: auto;
       }
     }
     /* Contact */
@@ -113,16 +121,20 @@
       flex-direction: row;
       gap: 20px;
       margin-bottom: 15px;
+      align-items: stretch;
     }
     .contact-grid .content {
       flex: 1;
+      display: flex;
+      flex-direction: column;
     }
     .contact-grid img {
       width: 350px;
-      height: auto;
+      min-height: 280px;
       border-radius: 12px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-      object-fit: cover;
+      object-fit: contain;
+      background-color: #f9f9f9;
     }
     @media (max-width: 900px) {
       .contact-grid {
@@ -130,6 +142,7 @@
       }
       .contact-grid img {
         width: 100%;
+        min-height: auto;
       }
     }
     footer {
@@ -137,6 +150,11 @@
       margin-top: 20px;
       padding: 20px;
       color: var(--muted);
+    }
+    /* Liens sans soulignement ni couleur */
+    a[href^="tel:"], a[href^="mailto:"] {
+      color: inherit;
+      text-decoration: none;
     }
   </style>
 </head>
@@ -166,20 +184,22 @@
   <h2 class="section-title" id="seances">Séances d'ostéopathie en entreprise</h2>
   <div class="row-equal">
     <div class="content block">
-      <p>Je me déplace directement dans vos locaux pour des séances individuelles ou collectives adaptées aux besoins de vos salariés.</p>
-      <strong>Organisation :</strong>
-      <ul>
-        <li>Espace dédié dans vos locaux.</li>
-        <li>Séances de 30 à 45 minutes.</li>
-        <li>Planning avec votre service RH.</li>
-        <li>Matériel fourni.</li>
-      </ul>
-      <strong>Bénéfices :</strong>
-      <ul>
-        <li>Réduction des TMS.</li>
-        <li>Amélioration du confort et de la productivité.</li>
-        <li>Diminution du stress.</li>
-      </ul>
+      <div>
+        <p>Je me déplace directement dans vos locaux pour des séances individuelles ou collectives adaptées aux besoins de vos salariés.</p>
+        <strong>Organisation :</strong>
+        <ul>
+          <li>Espace dédié dans vos locaux.</li>
+          <li>Séances de 30 à 45 minutes.</li>
+          <li>Planning avec votre service RH.</li>
+          <li>Matériel fourni.</li>
+        </ul>
+        <strong>Bénéfices :</strong>
+        <ul>
+          <li>Réduction des TMS.</li>
+          <li>Amélioration du confort et de la productivité.</li>
+          <li>Diminution du stress.</li>
+        </ul>
+      </div>
     </div>
     <img src="image 7.png" alt="Ostéopathie en entreprise">
   </div>
@@ -187,20 +207,22 @@
   <h2 class="section-title" id="formations">Formations et sensibilisation</h2>
   <div class="row-equal">
     <div class="content block">
-      <p>Des ateliers pratiques pour sensibiliser vos équipes aux bonnes postures, aux TMS et à la gestion du stress.</p>
-      <strong>Thèmes :</strong>
-      <ul>
-        <li>Postures de travail.</li>
-        <li>Étirements et exercices simples.</li>
-        <li>Gestion du stress.</li>
-        <li>Prévention de la sédentarité.</li>
-      </ul>
-      <strong>Organisation :</strong>
-      <ul>
-        <li>1h à 2h, en groupe.</li>
-        <li>Supports pédagogiques.</li>
-        <li>Adaptation à vos métiers.</li>
-      </ul>
+      <div>
+        <p>Des ateliers pratiques pour sensibiliser vos équipes aux bonnes postures, aux TMS et à la gestion du stress.</p>
+        <strong>Thèmes :</strong>
+        <ul>
+          <li>Postures de travail.</li>
+          <li>Étirements et exercices simples.</li>
+          <li>Gestion du stress.</li>
+          <li>Prévention de la sédentarité.</li>
+        </ul>
+        <strong>Organisation :</strong>
+        <ul>
+          <li>1h à 2h, en groupe.</li>
+          <li>Supports pédagogiques.</li>
+          <li>Adaptation à vos métiers.</li>
+        </ul>
+      </div>
     </div>
     <img src="image 8.png" alt="Formations en entreprise">
   </div>
@@ -208,10 +230,12 @@
   <h2 class="section-title" id="contact">Contact & périmètre d'intervention</h2>
   <div class="contact-grid">
     <div class="content block">
-      <h3>Périmètre d'intervention</h3>
-      <p>Intervention dans un périmètre d'une heure autour de Cayeux-sur-Mer : Abbeville, Amiens, Rouen, Dieppe, Boulogne-sur-Mer, Berck, Neufchâtel-en-Bray.</p>
-      <p><strong>Téléphone :</strong> <a href="tel:+33699208742">06.99.20.87.42</a></p>
-      <p><strong>Email :</strong> <a href="mailto:elisa.bouville.osteo@gmail.com">elisa.bouville.osteo@gmail.com</a></p>
+      <div>
+        <h3>Périmètre d'intervention</h3>
+        <p>Intervention dans un périmètre d'une heure autour de Cayeux-sur-Mer : Abbeville, Amiens, Rouen, Dieppe, Boulogne-sur-Mer, Berck, Neufchâtel-en-Bray.</p>
+        <p><strong>Téléphone :</strong> <a href="tel:+33699208742">06.99.20.87.42</a></p>
+        <p><strong>Email :</strong> <a href="mailto:elisa.bouville.osteo@gmail.com">elisa.bouville.osteo@gmail.com</a></p>
+      </div>
     </div>
     <img src="image 6.png" alt="Cabinet d'ostéopathie">
   </div>
