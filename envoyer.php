@@ -2,71 +2,76 @@
 session_start();
 header('Content-Type: application/json');
 
-// Vérification du jeton CSRF
+// Vérification CSRF
 if (!isset($_POST['_csrf']) || $_POST['_csrf'] !== ($_SESSION['csrf_token'] ?? '')) {
     echo json_encode(['success' => false, 'message' => 'Token CSRF invalide.']);
     exit;
 }
 
-// Vérification du token reCAPTCHA Enterprise
-$recaptchaSecret = '6LcHmgwsAAAAALXlKXNOaepzj8HzsQ-ESIMNSjpN'; // Remplace par ta clé secrète
-$recaptchaResponse = $_POST['g-recaptcha-response'];
-$recaptchaUrl = "https://www.google.com/recaptcha/enterprise.js?render=6LcHmgwsAAAAALXlKXNOaepzj8HzsQ-ESIMNSjpN"=$recaptchaSecret";
+// reCAPTCHA v2 (case à cocher)
+$recaptchaSecret = '6LfumgwsAAAAADlxrVHCemhzAG_pWs9vj7ZZh6G';
+$recaptchaResponse = $_POST['g-recaptcha-response'] ?? '';
 
-$recaptchaData = [
-    'event' => [
-        'token' => $recaptchaResponse,
-        'siteKey' => '6LcHmgwsAAAAALXlKXNOaepzj8HzsQ-ESIMNSjpN',
-        'expectedAction' => 'submit'
-    ]
-];
+$verify = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=" . $recaptchaSecret . "&response=" . $recaptchaResponse);
+$captchaSuccess = json_decode($verify);
 
-$options = [
-    'http' => [
-        'header'  => "Content-type: application/json\r\n",
-        'method'  => 'POST',
-        'content' => json_encode($recaptchaData),
-    ],
-];
-
-$context  = stream_context_create($options);
-$result = file_get_contents($recaptchaUrl, false, $context);
-$recaptchaResult = json_decode($result);
-
-if (!$recaptchaResult || ($recaptchaResult->tokenProperties->valid !== true)) {
+if (!$captchaSuccess || !$captchaSuccess->success) {
     echo json_encode(['success' => false, 'message' => 'reCAPTCHA invalide.']);
     exit;
 }
 
-// Récupération des données du formulaire
-$nomEntreprise = htmlspecialchars($_POST['nomEntreprise']);
-$nomContact = htmlspecialchars($_POST['nomContact']);
-$fonction = htmlspecialchars($_POST['fonction']);
-$telephone = htmlspecialchars($_POST['telephone'] ?? '');
-$mail = htmlspecialchars($_POST['mail']);
-$motif = htmlspecialchars($_POST['motif']);
-$description = htmlspecialchars($_POST['description']);
+// Récupération sécurisée des champs
+function safe($v) { return htmlspecialchars(trim($v), ENT_QUOTES, 'UTF-8'); }
 
-// Envoi de l'e-mail
+$nomEntreprise = safe($_POST['nomEntreprise']);
+$nomContact = safe($_POST['nomContact']);
+$fonction = safe($_POST['fonction']);
+$telephone = safe($_POST['telephone'] ?? '');
+$mail = safe($_POST['mail']);
+$motif = safe($_POST['motif']);
+$description = safe($_POST['description']);
+
+// Email
 $to = "elisa.bouville.osteo@gmail.com";
 $subject = "Nouvelle demande de renseignement depuis le site";
-$message = "
-Nom de l'entreprise : $nomEntreprise
-Nom du contact : $nomContact
-Fonction : $fonction
-Téléphone : $telephone
-Mail : $mail
-Motif : $motif
-Description : $description
-";
+$message = "Nom de l'entreprise : $nomEntreprise\n" .
+           "Nom du contact : $nomContact\n" .
+           "Fonction : $fonction\n" .
+           "Téléphone : $telephone\n" .
+           "Mail : $mail\n" .
+           "Motif : $motif\n" .
+           "Description : $description\n";
 
-$headers = "From: no-reply@ton-domaine.com\r\n";
-$headers .= "Reply-To: $mail\r\n";
-$headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+$headers = "From: no-reply@ton-domaine.com\r\n".
+           "Reply-To: $mail\r\n".
+           "Content-Type: text/plain; charset=UTF-8\r\n";
 
 if (mail($to, $subject, $message, $headers)) {
     echo json_encode(['success' => true]);
 } else {
-    echo json_encode(['success' => false, 'message' => 'Échec de l\'envoi de l\'e-mail.']);
+    echo json_encode(['success' => false, 'message' => "Échec de l'envoi de l'e-mail."]);
 }
+
+
+// Envoi accusé de réception à l'utilisateur
+$confirmSubject = "Votre demande a bien été reçue";
+$confirmMessage = "Bonjour,
+
+Votre demande a bien été reçue.
+Nous vous répondrons dans les plus brefs délais.
+
+Récapitulatif :
+- Entreprise : $nomEntreprise
+- Contact : $nomContact
+- Motif : $motif
+
+Merci de votre confiance.";
+
+$confirmHeaders = "From: no-reply@ton-domaine.com
+".
+                  "Content-Type: text/plain; charset=UTF-8
+";
+
+mail($mail, $confirmSubject, $confirmMessage, $confirmHeaders);
+
 ?>
