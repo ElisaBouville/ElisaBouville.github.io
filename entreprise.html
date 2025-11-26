@@ -99,10 +99,10 @@
     }
     .row-equal img {
       width: 350px;
-      min-height: 280px;
+      height: 280px;
       border-radius: 12px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-      object-fit: contain;
+      object-fit: cover;
       background-color: #f9f9f9;
     }
     @media (max-width: 900px) {
@@ -111,9 +111,10 @@
       }
       .row-equal img {
         width: 100%;
-        min-height: auto;
+        height: auto;
       }
     }
+
     .contact-grid {
       display: flex;
       flex-direction: row;
@@ -123,15 +124,13 @@
     }
     .contact-grid .content {
       flex: 1;
-      display: flex;
-      flex-direction: column;
     }
     .contact-grid img {
       width: 350px;
-      min-height: 280px;
+      height: 280px;
       border-radius: 12px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-      object-fit: contain;
+      object-fit: cover;
       background-color: #f9f9f9;
     }
     @media (max-width: 900px) {
@@ -140,9 +139,10 @@
       }
       .contact-grid img {
         width: 100%;
-        min-height: auto;
+        height: auto;
       }
     }
+
     footer {
       text-align: center;
       margin-top: 20px;
@@ -153,27 +153,10 @@
       color: inherit;
       text-decoration: none;
     }
-    /* Style pour le bouton "Me contacter" */
-    .contact-button {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 10px 14px;
-      background: var(--navy);
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-      text-align: center;
-      max-width: 200px;
-    }
-    .contact-button:hover {
-      background: #0f2e3d;
-    }
   </style>
 </head>
 <body>
 <div class="container">
-  <!-- HEADER -->
   <header>
     <div class="logo">
       <img src="image 1.PNG" alt="Logo Elisa Bouville">
@@ -187,86 +170,78 @@
       <a href="#contact">Contact</a>
     </div>
   </header>
-  <!-- NAVIGATION -->
+
   <nav>
     <a href="#seances">Séances en entreprise</a>
     <a href="#formations">Formations / Sensibilisation</a>
     <a href="#contact">Contact</a>
   </nav>
-  <!-- SEANCES EN ENTREPRISE -->
+
   <h2 class="section-title" id="seances">Séances d'ostéopathie en entreprise</h2>
   <div class="row-equal">
     <div class="content block">
-      <div>
-        <p>Je me déplace directement dans vos locaux pour des séances individuelles ou collectives adaptées aux besoins de vos salariés.</p>
-        <strong>Organisation :</strong>
-        <ul>
-          <li>Espace dédié dans vos locaux.</li>
-          <li>Séances de 30 à 45 minutes.</li>
-          <li>Planning avec votre service RH.</li>
-          <li>Matériel fourni.</li>
-        </ul>
-        <strong>Bénéfices :</strong>
-        <ul>
-          <li>Réduction des TMS.</li>
-          <li>Amélioration du confort et de la productivité.</li>
-          <li>Diminution du stress.</li>
-        </ul>
-      </div>
+      <p>Je me déplace directement dans vos locaux pour des séances individuelles ou collectives adaptées aux besoins de vos salariés.</p>
+      <strong>Organisation :</strong>
+      <ul>
+        <li>Espace dédié dans vos locaux.</li>
+        <li>Séances de 30 à 45 minutes.</li>
+        <li>Planning avec votre service RH.</li>
+        <li>Matériel fourni.</li>
+      </ul>
+      <strong>Bénéfices :</strong>
+      <ul>
+        <li>Réduction des TMS.</li>
+        <li>Amélioration du confort et de la productivité.</li>
+        <li>Diminution du stress.</li>
+      </ul>
     </div>
     <img src="image 7.png" alt="Ostéopathie en entreprise">
   </div>
-  <!-- FORMATIONS -->
+
   <h2 class="section-title" id="formations">Formations et sensibilisation</h2>
   <div class="row-equal">
     <div class="content block">
-      <div>
-        <p>Des ateliers pratiques pour sensibiliser vos équipes aux bonnes postures, aux TMS et à la gestion du stress.</p>
-        <strong>Thèmes :</strong>
-        <ul>
-          <li>Postures de travail.</li>
-          <li>Étirements et exercices simples.</li>
-          <li>Gestion du stress.</li>
-          <li>Prévention de la sédentarité.</li>
-        </ul>
-        <strong>Organisation :</strong>
-        <ul>
-          <li>1h à 2h, en groupe.</li>
-          <li>Supports pédagogiques.</li>
-          <li>Adaptation à vos métiers.</li>
-        </ul>
-      </div>
+      <p>Des ateliers pratiques pour sensibiliser vos équipes aux bonnes postures, aux TMS et à la gestion du stress.</p>
+      <strong>Thèmes :</strong>
+      <ul>
+        <li>Postures de travail.</li>
+        <li>Étirements et exercices simples.</li>
+        <li>Gestion du stress.</li>
+        <li>Prévention de la sédentarité.</li>
+      </ul>
+      <strong>Organisation :</strong>
+      <ul>
+        <li>1h à 2h, en groupe.</li>
+        <li>Supports pédagogiques.</li>
+        <li>Adaptation à vos métiers.</li>
+      </ul>
     </div>
     <img src="image 8.png" alt="Formations en entreprise">
   </div>
-  <!-- CONTACT -->
+
   <h2 class="section-title" id="contact">Contact & périmètre d'intervention</h2>
   <div class="contact-grid">
     <div class="content block">
-      <div>
-        <h3>Périmètre d'intervention</h3>
-        <p><strong>Intervention dans un périmètre d'une heure autour de Cayeux-sur-Mer :</strong>
-          Abbeville, Amiens, Rouen, Dieppe, Boulogne-sur-Mer, Berck, Neufchâtel-en-Bray.</p>
-        <p><strong>Téléphone :</strong>
-          <a href="tel:+33699208742">06.99.20.87.42</a>
-        </p>
-        <p><strong>Email :</strong>
-          <a href="mailto:elisa.bouville.osteo@gmail.com">elisa.bouville.osteo@gmail.com</a>
-        </p>
-        <p><strong>Formulaire :</strong>
-          <a href="formulaire.html" class="contact-button">Me contacter</a>
-        </p>
-      </div>
+      <h3>Périmètre d'intervention</h3>
+      <p><strong>Intervention dans un périmètre d'une heure autour de Cayeux-sur-Mer :</strong>
+        Abbeville, Amiens, Rouen, Dieppe, Boulogne-sur-Mer, Berck, Neufchâtel-en-Bray.</p>
+      <p><strong>Téléphone :</strong>
+        <a href="tel:+33699208742">06.99.20.87.42</a>
+      </p>
+      <p><strong>Email :</strong>
+        <a href="mailto:elisa.bouville.osteo@gmail.com">elisa.bouville.osteo@gmail.com</a>
+      </p>
     </div>
     <img src="image 6.png" alt="Cabinet d'ostéopathie">
   </div>
+
   <footer>
-    © <span id="year"></span> Elisa Bouville — Ostéopathe D.O.
-    <br><br>
+    © <span id="year"></span> Elisa Bouville — Ostéopathe D.O.<br><br>
     <a href="https://www.facebook.com/profile.php?id=100090798352717" target="_blank">Facebook</a> •
     <a href="https://www.linkedin.com/in/elisa-bouville-562970164/" target="_blank">LinkedIn</a>
   </footer>
 </div>
+
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
 </script>
