@@ -124,7 +124,27 @@ header{
   opacity:1;
 }
 @media(max-width:1200px){
-  .nav-sidebar{display:none}
+  /* Garder nav-sidebar visible sur mobile/tablette */
+  .nav-sidebar{
+    position:static;
+    flex-direction:row;
+    gap:10px;
+    width:100%;
+    justify-content:flex-start;
+    padding:12px;
+    overflow-x:auto;
+    padding-bottom:8px;
+    z-index:100;
+  }
+  .nav-sidebar a{
+    flex-shrink:0;
+  }
+  .nav-sidebar a:hover{
+    width:50px;
+  }
+  .nav-sidebar a:hover span{
+    opacity:0;
+  }
 }
 
 /* NAVIGATION */
@@ -259,7 +279,38 @@ footer .social{margin-top:8px}
 
 /* RESPONSIVE DESIGN */
 @media(max-width:980px){
-  .hero{grid-template-columns:1fr}
+  .hero{
+    grid-template-columns:1fr;
+    position:relative;
+    min-height:500px;
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .hero .hero-card{
+    position:relative;
+    z-index:2;
+    text-align:center;
+    background:rgba(251, 252, 251, 0.85);
+    padding:30px;
+    border-radius:16px;
+  }
+  .hero .aside{
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index:1;
+  }
+  .hero .aside img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    opacity:0.6;
+  }
   .info-grid{grid-template-columns:1fr}
 }
 @media(max-width:900px){
