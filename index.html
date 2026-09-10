@@ -9,14 +9,14 @@
 </head>
 
 <body>
-  <div class="nav-sidebar">
-    <a href="#home">🏠<span>Accueil</span></a>
-    <a href="#about">ℹ️<span>À propos</span></a>
-    <a href="#domains">🎯<span>Domaines</span></a>
-    <a href="#testimonials">⭐<span>Avis</span></a>
-    <a href="entreprise.html">🏢<span>Entreprise</span></a>
-    <a href="https://www.doctolib.fr/osteopathe/cayeux-sur-mer/elisa-bouville" rel="noopener">📅<span>Prendre RDV</span></a>
-  </div>
+  <nav class="nav-sidebar" aria-label="Navigation rapide">
+    <a href="#home" title="Accueil" aria-label="Accueil">🏠<span>Accueil</span></a>
+    <a href="#about" title="À propos" aria-label="À propos">ℹ️<span>À propos</span></a>
+    <a href="#domains" title="Domaines d'intervention" aria-label="Domaines d'intervention">🎯<span>Domaines</span></a>
+    <a href="#testimonials" title="Avis patients" aria-label="Avis patients">⭐<span>Avis</span></a>
+    <a href="entreprise.html" title="Ostéopathie en entreprise" aria-label="Ostéopathie en entreprise">🏢<span>Entreprise</span></a>
+    <a href="https://www.doctolib.fr/osteopathe/cayeux-sur-mer/elisa-bouville" target="_blank" rel="noopener" title="Prendre rendez-vous" aria-label="Prendre rendez-vous">📅<span>Prendre RDV</span></a>
+  </nav>
   <div class="container">
     <header>
       <div class="logo">
@@ -75,7 +75,7 @@
         </aside>
       </section>
 
-      <section id="about" class="hero-card" style="margin-top:10px">
+      <section id="about" class="hero-card section">
         <h2 class="section-title">L’ostéopathie : comprendre, rééquilibrer, soulager</h2>
         <p class="muted">  L’ostéopathie est une approche globale de la santé qui vise à restaurer la mobilité et l’équilibre du corps. Par des gestes précis et une écoute attentive, l’ostéopathe identifie les tensions et les blocages qui perturbent le bon fonctionnement de l’organisme.
 <br>
@@ -85,12 +85,12 @@
         <strong>Retrouver du mouvement, c’est retrouver du bien-être.</strong>
       </section>
 
-       <section id="approche" class="hero-card" style="margin-top:10px">
+       <section id="approche" class="hero-card section">
         <h2 class="section-title">Mon approche</h2>
         <p class="muted">Je suis une ostéopathe diplômée D.O. avec des formations complémentaires selon différents profils de patients. Mon approche est centrée sur la sécurité, la prévention et l’écoute, du nourrisson au sénior, ainsi que pour les femmes enceintes avant et après la grossesse.</p>
       </section>
 
-      <section id="domains" style="margin-top:10px">
+      <section id="domains" class="section">
         <h2 class="section-title">Domaines d’intervention</h2>
         <div class="info-grid">
           <div class="card"><h4>Pédiatrie : accompagner la croissance dès le plus jeune âge</h4><p class="muted">Dès la naissance, le corps du nourrisson subit de nombreuses contraintes. L’ostéopathie pédiatrique aide à corriger les petites tensions liées à l’accouchement, aux troubles digestifs, au sommeil ou à la posture.
@@ -113,7 +113,7 @@ C’est une démarche préventive, humaine et efficace pour concilier santé et 
         </div>
       </section>
 
-      <section id="testimonials" style="margin-top:18px">
+      <section id="testimonials" class="section">
         <h2 class="section-title">Avis patients</h2>
         <div class="testimonials">
           <!-- Widget Google Reviews -->
@@ -122,20 +122,18 @@ C’est une démarche préventive, humaine et efficace pour concilier santé et 
         </div>
       </section>
 
-<section id="contact" style="margin-top:12px;">
+<section id="contact" class="section">
   <h2 class="section-title">Contact & accès</h2>
 
-  <div class="contact-card" style="margin-bottom:20px">
-    <p><strong>Téléphone :</strong> <a href="tel:+33699208742">06.99.20.87.42</a></p>
-    <p><strong>Email :</strong> <a href="mailto:elisa.bouville.osteo@gmail.com">elisa.bouville.osteo@gmail.com</a></p>
-    <p><strong>Prise de RDV :</strong>
+  <div class="contact-card">
+    <div class="contact-row">
+      <p><strong>Téléphone :</strong> <a href="tel:+33699208742">06.99.20.87.42</a></p>
+      <p><strong>Email :</strong> <a href="mailto:elisa.bouville.osteo@gmail.com">elisa.bouville.osteo@gmail.com</a></p>
       <a class="btn" href="https://www.doctolib.fr/osteopathe/cayeux-sur-mer/elisa-bouville"
          target="_blank" rel="noopener">Réserver via Doctolib</a>
-    </p>
-  </div>
-  <div class="contact-card">
-    <div class="maps-row">
+    </div>
 
+    <div class="maps-row">
       <div class="map-block">
         <strong>Cayeux-sur-Mer - Cabinet d'Ostéopathie et de Kinésithérapie</strong>
         <iframe
@@ -161,7 +159,6 @@ C’est une démarche préventive, humaine et efficace pour concilier santé et 
           Jeudi : 9h00 - 19h00
         </p>
       </div>
-
     </div>
   </div>
 </section>
