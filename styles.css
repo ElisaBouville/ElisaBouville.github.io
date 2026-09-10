@@ -49,21 +49,29 @@ header{
 /* STICKY CTA SIDEBAR */
 .cta-sticky{
   position:fixed;
-  left:20px;
+  left:30px;
   top:50%;
   transform:translateY(-50%);
-  display:flex;
+  display:flex !important;
   flex-direction:column;
-  gap:12px;
-  z-index:999;
+  gap:14px;
+  z-index:9999;
+  pointer-events:auto;
 }
 .cta-sticky .btn{
-  padding:10px 12px;
-  font-size:14px;
+  padding:12px 14px;
+  font-size:13px;
   white-space:nowrap;
+  min-width:140px;
+  text-align:center;
+  box-shadow:0 4px 12px rgba(18,54,74,0.15);
 }
-@media(max-width:1000px){
-  .cta-sticky{display:none}
+.cta-sticky .btn:hover{
+  transform:translateX(4px);
+  transition:transform 0.2s ease;
+}
+@media(max-width:1200px){
+  .cta-sticky{display:none !important}
 }
 
 /* NAVIGATION */
@@ -116,7 +124,7 @@ header{
 .card p{margin:0;color:var(--muted)}
 .aside img{
   width:100%;
-  max-height:280px;
+  max-height:220px;
   object-fit:cover;
   border-radius:10px;
   box-shadow:0 10px 20px rgba(10,20,25,0.06);
