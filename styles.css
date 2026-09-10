@@ -105,6 +105,7 @@ header{
   position:relative;
   overflow:visible;
   gap:8px;
+  line-height:1;
 }
 .nav-sidebar a span{
   font-size:13px;
