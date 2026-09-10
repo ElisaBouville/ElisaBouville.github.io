@@ -112,19 +112,30 @@ header{
   }
 }
 @media(max-width:1280px){
-  /* Barre horizontale sur mobile/tablette : icônes centrées, sans libellé */
+  /* Barre horizontale sur mobile/tablette : boutons icône + texte,
+     toujours dépliés (pas de survol tactile fiable pour révéler le libellé) */
   .nav-sidebar{
     position:static;
     flex-direction:row;
+    flex-wrap:wrap;
     gap:10px;
     width:100%;
     justify-content:center;
     padding:12px 0 4px;
-    overflow-x:auto;
     z-index:100;
   }
   .nav-sidebar a{
-    flex:0 0 52px;
+    flex:0 0 auto;
+    width:auto;
+    height:44px;
+    padding:0 14px;
+    gap:8px;
+    font-size:18px;
+    justify-content:flex-start;
+  }
+  .nav-sidebar a span{
+    max-width:120px;
+    opacity:1;
   }
 }
 
