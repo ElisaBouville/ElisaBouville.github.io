@@ -26,11 +26,12 @@
       </div>
     </header>
 
-    <nav class="nav">
-      <a href="#seances">Séances en entreprise</a>
-      <a href="#formations">Formations / Sensibilisation</a>
-    </nav>
   </div>
+
+  <nav class="nav">
+    <a href="#seances">Séances en entreprise</a>
+    <a href="#formations">Formations / Sensibilisation</a>
+  </nav>
 
   <h2 class="section-title" id="seances">Séances d'ostéopathie en entreprise</h2>
   <div class="row-equal">
@@ -106,6 +107,20 @@
   window.addEventListener('pageshow', function (event) {
     if (event.persisted) window.location.reload();
   });
+</script>
+<script>
+  // Masque l'en-tête (logo + CTA) dès que la page défile, pour ne laisser
+  // visible que le bandeau de navigation collant.
+  (function () {
+    var header = document.querySelector('.site-header');
+    if (!header) return;
+    var threshold = 40;
+    function onScroll() {
+      header.classList.toggle('scrolled', window.scrollY > threshold);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
 </script>
 </body>
 </html>

@@ -28,14 +28,15 @@
         </div>
       </header>
 
-      <nav class="nav">
-        <a href="#domains">Domaines d'intervention</a>
-        <a href="cabinets.html">Mes cabinets</a>
-        <a href="entreprise.html">Ostéopathie en entreprise</a>
-        <a href="#about">À propos</a>
-        <a href="#testimonials">Avis patients</a>
-      </nav>
     </div>
+
+    <nav class="nav">
+      <a href="#domains">Domaines d'intervention</a>
+      <a href="cabinets.html">Mes cabinets</a>
+      <a href="entreprise.html">Ostéopathie en entreprise</a>
+      <a href="#about">À propos</a>
+      <a href="#testimonials">Avis patients</a>
+    </nav>
 <main>
       <section id="home" class="hero">
         <div class="hero-card">
@@ -176,6 +177,20 @@ C’est une démarche préventive, humaine et efficace pour concilier santé et 
   window.addEventListener('pageshow', function (event) {
     if (event.persisted) window.location.reload();
   });
+</script>
+<script>
+  // Masque l'en-tête (logo + CTA) dès que la page défile, pour ne laisser
+  // visible que le bandeau de navigation collant.
+  (function () {
+    var header = document.querySelector('.site-header');
+    if (!header) return;
+    var threshold = 40;
+    function onScroll() {
+      header.classList.toggle('scrolled', window.scrollY > threshold);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
 </script>
 </body>
 </html>
