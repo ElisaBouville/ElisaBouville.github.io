@@ -198,6 +198,19 @@ a.card:hover{
 footer{margin-top:24px;padding:18px;text-align:center;color:var(--muted)}
 footer .social{margin-top:8px}
 
+/* CABINETS.HTML — présentation éditoriale de chaque cabinet
+   (sous-titre + texte), placée au-dessus du bloc plan/horaires */
+.cabinet-intro{
+  background:#fff;
+  padding:22px;
+  border-radius:var(--card-radius);
+  box-shadow:0 10px 30px rgba(10,20,25,0.05);
+  margin-bottom:20px;
+}
+.cabinet-intro h3{margin:0 0 14px;font-size:20px;color:var(--navy)}
+.cabinet-intro p{margin:0 0 14px;color:var(--muted);line-height:1.7}
+.cabinet-intro p:last-child{margin-bottom:0}
+
 /* ENTREPRISE.HTML COMPONENTS */
 .block{
   background:#fff;
