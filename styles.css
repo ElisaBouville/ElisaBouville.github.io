@@ -185,9 +185,23 @@ header{
   padding:16px;
   border-radius:12px;
   box-shadow:0 8px 20px rgba(10,20,25,0.04);
+  border-top:4px solid transparent;
 }
 .card h3, .card h4{margin:0 0 6px}
 .card p{margin:0;color:var(--muted)}
+
+/* Couleurs par thématique, inspirées de la palette des illustrations
+   (corail, sauge, moutarde, terre cuite...) — reprises à l'identique
+   entre les cartes "services" et les cartes "Domaines d'intervention"
+   qui traitent du même sujet. */
+.card--pediatrie{border-top-color:#f2c8b6}
+.card--general{border-top-color:#a9c1cf}
+.card--geriatrie{border-top-color:#d9b98a}
+.card--reeducation{border-top-color:#9ccfc2}
+.card--maternite{border-top-color:#e3aab0}
+.card--sport{border-top-color:#e3b053}
+.card--entreprise{border-top-color:#cf8c5c}
+.card--formation{border-top-color:#b3aed1}
 .aside img{
   width:100%;
   max-height:220px;
@@ -206,6 +220,7 @@ header{
 }
 .aside-panel h3{margin:0 0 8px}
 .aside-panel p{margin:0;color:var(--muted);line-height:1.7}
+.aside-panel strong{color:var(--navy)}
 
 /* CONTACT & INFOS */
 .section-title{font-size:20px;color:var(--navy);margin:0 0 12px}
