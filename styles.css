@@ -69,7 +69,9 @@ header{
   gap:14px;
   z-index:9998;
   width:52px;
-  align-items:center;
+  /* flex-start (et non center) : l'expansion au survol grandit vers la
+     droite uniquement, sans déborder de l'écran par la gauche */
+  align-items:flex-start;
 }
 .nav-sidebar a{
   color:var(--navy);
