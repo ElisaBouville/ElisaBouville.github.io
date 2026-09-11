@@ -109,13 +109,16 @@ header{
   .nav-sidebar a:hover{
     background:var(--navy);
     color:#fff;
-    width:168px;
+    /* largeur ajustée au contenu (icône + libellé) plutôt qu'une largeur
+       fixe, pour ne pas déborder sur le texte de la page plus que nécessaire */
+    width:max-content;
+    max-width:210px;
     padding:0 16px;
     gap:10px;
     justify-content:flex-start;
   }
   .nav-sidebar a:hover span{
-    max-width:120px;
+    max-width:150px;
     opacity:1;
   }
 }
