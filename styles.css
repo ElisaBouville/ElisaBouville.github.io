@@ -211,6 +211,10 @@ footer .social{margin-top:8px}
 .cabinet-intro p{margin:0 0 14px;color:var(--muted);line-height:1.7}
 .cabinet-intro p:last-child{margin-bottom:0}
 
+/* Bloc "Cayeux-sur-Mer" / "Abbeville" fusionnés dans une même section */
+.cabinet-block{margin-bottom:36px;scroll-margin-top:20px}
+.cabinet-block:last-child{margin-bottom:0}
+
 /* ENTREPRISE.HTML COMPONENTS */
 .block{
   background:#fff;
