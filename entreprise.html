@@ -5,9 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ostéopathie en entreprise — Elisa Bouville</title>
   <meta name="description" content="Ostéopathie en entreprise à Cayeux-sur-Mer et Abbeville : séances individuelles, ateliers de sensibilisation aux TMS et formations pour vos salariés." />
-  <link rel="stylesheet" href="styles.css">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <link rel="stylesheet" href="styles.css?v=3">
 </head>
 <body>
+<div class="nav-sidebar">
+  <a href="index.html">🏠<span>Accueil</span></a>
+  <a href="index.html#about">ℹ️<span>À propos</span></a>
+  <a href="index.html#domains">🎯<span>Domaines</span></a>
+  <a href="index.html#testimonials">⭐<span>Avis</span></a>
+  <a href="#contact">📞<span>Contact</span></a>
+  <a href="https://www.doctolib.fr/osteopathe/cayeux-sur-mer/elisa-bouville" rel="noopener">📅<span>Prendre RDV</span></a>
+</div>
 <div class="container">
   <div class="site-header">
     <header>
@@ -96,6 +106,14 @@
 
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+<script>
+  // Si la page est restaurée depuis le cache de navigation (bouton
+  // précédent/suivant), on force un rechargement pour ne jamais afficher
+  // une version obsolète du site.
+  window.addEventListener('pageshow', function (event) {
+    if (event.persisted) window.location.reload();
+  });
 </script>
 </body>
 </html>
