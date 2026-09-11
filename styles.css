@@ -195,15 +195,16 @@ header{
 /* Couleurs par thématique, inspirées de la palette des illustrations
    (corail, sauge, moutarde, terre cuite...) — reprises à l'identique
    entre les cartes "services" et les cartes "Domaines d'intervention"
-   qui traitent du même sujet. */
-.card--pediatrie{border-top-color:#f2c8b6}
-.card--general{border-top-color:#a9c1cf}
-.card--geriatrie{border-top-color:#d9b98a}
-.card--reeducation{border-top-color:#9ccfc2}
-.card--maternite{border-top-color:#e3aab0}
-.card--sport{border-top-color:#e3b053}
-.card--entreprise{border-top-color:#cf8c5c}
-.card--formation{border-top-color:#b3aed1}
+   qui traitent du même sujet. Liseré en couleur pleine, fond teinté en
+   version claire de la même couleur. */
+.card--pediatrie{border-top-color:#f2c8b6;background:#fdf4ef}
+.card--general{border-top-color:#a9c1cf;background:#f0f4f7}
+.card--geriatrie{border-top-color:#d9b98a;background:#faf4ea}
+.card--reeducation{border-top-color:#9ccfc2;background:#eff8f5}
+.card--maternite{border-top-color:#e3aab0;background:#fcf1f2}
+.card--sport{border-top-color:#e3b053;background:#fdf6ea}
+.card--entreprise{border-top-color:#cf8c5c;background:#faf1ea}
+.card--formation{border-top-color:#b3aed1;background:#f4f2fa}
 .aside img{
   width:100%;
   max-height:220px;
