@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mes cabinets — Elisa Bouville</title>
+  <meta name="description" content="Cabinets d'ostéopathie d'Elisa Bouville à Cayeux-sur-Mer et Abbeville : adresses, horaires et accès." />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <link rel="stylesheet" href="styles.css?v=3">
+</head>
+<body>
+<div class="container">
+  <div class="site-header">
+    <header>
+      <div class="logo">
+        <img src="image 1.jpg" alt="Logo Elisa Bouville" width="100" height="100">
+        <div class="brand">
+          <h1>ELISA BOUVILLE</h1>
+          <p>Ostéopathe D.O.<br>Cayeux-sur-Mer • Abbeville</p>
+        </div>
+      </div>
+      <div class="cta">
+        <a class="btn" href="index.html">Accueil</a>
+        <a class="btn secondary" href="#contact">Contact</a>
+      </div>
+    </header>
+
+    <nav class="nav">
+      <a href="index.html#domains">Domaines d'intervention</a>
+      <a href="entreprise.html">Ostéopathie en entreprise</a>
+      <a href="index.html#about">À propos</a>
+      <a href="index.html#testimonials">Avis patients</a>
+    </nav>
+  </div>
+
+  <main>
+    <section id="contact" class="section">
+      <h2 class="section-title">Mes cabinets</h2>
+
+      <div class="contact-card">
+        <div class="contact-row">
+          <p><strong>Téléphone :</strong> <a href="tel:+33699208742">06.99.20.87.42</a></p>
+          <p><strong>Email :</strong> <a href="mailto:elisa.bouville.osteo@gmail.com">elisa.bouville.osteo@gmail.com</a></p>
+          <a class="btn" href="https://www.doctolib.fr/osteopathe/cayeux-sur-mer/elisa-bouville"
+             target="_blank" rel="noopener">Réserver via Doctolib</a>
+        </div>
+
+        <div class="maps-row">
+          <div class="map-block">
+            <strong>Cayeux-sur-Mer - Cabinet d'Ostéopathie et de Kinésithérapie</strong>
+            <iframe
+              src="https://www.google.com/maps?q=20+Rue+Jules+Verne+Cayeux-sur-Mer&output=embed"
+              title="Localisation du cabinet de Cayeux-sur-Mer">
+            </iframe>
+            <p class="map-note">
+              20 Rue Jules Verne, 80410 Cayeux-sur-Mer<br>
+              Stationnement à proximité — Accès PMR<br><br>
+              Lundi : 9h00 - 19h00<br>
+              Mercredi : 9h00 - 19h00<br>
+              Vendredi : 9h00 - 19h00<br>
+              Samedi : 9h00 - 12h00
+            </p>
+          </div>
+
+          <div class="map-block">
+            <strong>Abbeville — Espace Médical de Menchecourt</strong>
+            <iframe
+              src="https://www.google.com/maps?q=226+Rue+de+Menchecourt+80100+Abbeville&output=embed"
+              title="Localisation du cabinet d'Abbeville">
+            </iframe>
+            <p class="map-note">
+              226 rue de Menchecourt, 80100 Abbeville<br>
+              Stationnement à proximité — Accès PMR<br><br>
+              Mardi : 9h00 - 19h00<br>
+              Jeudi : 9h00 - 19h00
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>© <span id="year"></span> Elisa Bouville • Ostéopathe D.O. • Cayeux-sur-Mer • Abbeville</div>
+    <div class="social">
+      <a href="https://www.facebook.com/profile.php?id=100090798352717" target="_blank" rel="noopener">Facebook</a> •
+      <a href="https://www.linkedin.com/in/elisa-bouville-562970164/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </footer>
+</div>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script>
+  // Si la page est restaurée depuis le cache de navigation (bouton
+  // précédent/suivant), on force un rechargement pour ne jamais afficher
+  // une version obsolète du site.
+  window.addEventListener('pageshow', function (event) {
+    if (event.persisted) window.location.reload();
+  });
+</script>
+</body>
+</html>
