@@ -28,10 +28,14 @@
 
   </div>
 
-  <nav class="nav">
-    <a href="#cayeux">Cayeux-sur-Mer</a>
-    <a href="#abbeville">Abbeville</a>
-  </nav>
+  <div class="nav-wrap">
+    <nav class="nav">
+      <a href="#cayeux">Cayeux-sur-Mer</a>
+      <a href="#abbeville">Abbeville</a>
+    </nav>
+    <span class="nav-arrow nav-arrow--left" aria-hidden="true">&lt;</span>
+    <span class="nav-arrow nav-arrow--right" aria-hidden="true">&gt;</span>
+  </div>
 
   <main>
     <section id="contact" class="section">
@@ -164,6 +168,24 @@
         bandeau.style.transition = '';
       });
     });
+  })();
+</script>
+<script>
+  // Indicateurs « > » / « < » du bandeau de navigation : affichés
+  // seulement quand le bandeau déborde (ex. mobile) et déplaçables
+  // selon la position du défilement horizontal.
+  (function () {
+    var navWrap = document.querySelector('.nav-wrap');
+    var nav = navWrap ? navWrap.querySelector('.nav') : null;
+    if (!navWrap || !nav) return;
+    function update() {
+      var max = nav.scrollWidth - nav.clientWidth;
+      navWrap.classList.toggle('can-scroll-right', nav.scrollLeft < max - 2);
+      navWrap.classList.toggle('can-scroll-left', nav.scrollLeft > 2);
+    }
+    nav.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
   })();
 </script>
 </body>

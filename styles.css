@@ -78,21 +78,24 @@ header{
    horizontal si besoin) pour occuper le moins de place possible une fois
    seul visible pendant le défilement. Taille et police des boutons
    inchangées : seul l'agencement du bandeau est resserré. */
-.nav{
+.nav-wrap{
   position:sticky;
   top:0;
   z-index:500;
+  border-radius:12px;
+  margin-bottom:18px;
+  box-shadow:0 6px 16px rgba(18,54,74,0.05);
+}
+.nav{
   background-color:var(--bg);
   background-image:linear-gradient(90deg, rgba(156,207,194,0.12), rgba(242,200,182,0.06));
   padding:8px 10px;
   border-radius:12px;
-  margin-bottom:18px;
   display:flex;
   gap:8px;
   flex-wrap:nowrap;
   overflow-x:auto;
   -webkit-overflow-scrolling:touch;
-  box-shadow:0 6px 16px rgba(18,54,74,0.05);
 }
 .nav a{
   color:var(--navy);
@@ -102,6 +105,43 @@ header{
   font-weight:600;
   white-space:nowrap;
   flex:0 0 auto;
+}
+
+/* Indicateurs « > » / « < » signalant que le bandeau peut défiler
+   horizontalement (visible seulement quand le contenu déborde, ex.
+   mobile). « > » à droite tant qu'on n'est pas arrivé au bout du
+   défilement ; « < » apparaît à gauche une fois cette fin atteinte,
+   pour signaler qu'on peut défiler à nouveau en sens inverse. */
+.nav-arrow{
+  position:absolute;
+  top:0;
+  bottom:0;
+  width:30px;
+  display:flex;
+  align-items:center;
+  font-weight:600;
+  color:var(--navy);
+  pointer-events:none;
+  opacity:0;
+  transition:opacity .2s ease;
+}
+.nav-arrow--right{
+  right:0;
+  justify-content:flex-end;
+  padding-right:6px;
+  background:linear-gradient(to right, transparent, var(--bg) 65%);
+  border-radius:0 12px 12px 0;
+}
+.nav-arrow--left{
+  left:0;
+  justify-content:flex-start;
+  padding-left:6px;
+  background:linear-gradient(to left, transparent, var(--bg) 65%);
+  border-radius:12px 0 0 12px;
+}
+.nav-wrap.can-scroll-right .nav-arrow--right,
+.nav-wrap.can-scroll-left .nav-arrow--left{
+  opacity:1;
 }
 
 /* RYTHME VERTICAL COMMUN */
