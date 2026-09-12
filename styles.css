@@ -326,6 +326,11 @@ footer .social{margin-top:8px}
     border-radius:var(--card-radius);
     box-shadow:none;
     z-index:0;
+    /* purement décoratif : étant un flex item de même z-index que
+       .hero-card mais placé après lui dans le DOM, .aside gagnerait
+       sinon le contact tactile sur toute la zone et bloquerait les
+       clics vers les cartes de services. */
+    pointer-events:none;
   }
   .hero .aside-panel{
     position:relative;

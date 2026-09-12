@@ -190,6 +190,21 @@ C’est une démarche préventive, humaine et efficace pour concilier santé et 
     }
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
+
+    // Replie l'en-tête *avant* qu'un lien d'ancre ne déclenche le saut :
+    // sinon le navigateur calcule la position de défilement sur l'ancienne
+    // mise en page (en-tête encore déplié), qui se réduit ensuite pendant
+    // l'animation — la page atterrit alors trop haut par rapport à la cible.
+    var bandeau = header.querySelector('header');
+    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (!bandeau || header.classList.contains('scrolled')) return;
+        bandeau.style.transition = 'none';
+        header.classList.add('scrolled');
+        bandeau.offsetHeight;
+        bandeau.style.transition = '';
+      });
+    });
   })();
 </script>
 </body>
