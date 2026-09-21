@@ -1,6 +1,10 @@
 :root{
   --bg:#fbfcfb; --navy:#12364a; --muted:#6b7680; --accent:#9ccfc2; --coral:#f2c8b6; --card-radius:14px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  /* Hauteur réelle du bandeau de nav sticky (~57px) + marge de confort,
+     pour que le clic sur un lien d'ancre ne cache jamais le haut de la
+     destination (titre compris) derrière le bandeau. */
+  --nav-offset:80px;
 }
 html{scroll-behavior:smooth}
 *{box-sizing:border-box}
@@ -150,7 +154,7 @@ header{
 }
 
 /* RYTHME VERTICAL COMMUN */
-.section{margin-top:28px;scroll-margin-top:20px}
+.section{margin-top:28px;scroll-margin-top:var(--nav-offset)}
 
 /* HERO SECTION (index.html) */
 .hero{
@@ -185,7 +189,7 @@ header{
   border-radius:12px;
   box-shadow:0 8px 20px rgba(10,20,25,0.04);
   border-top:4px solid transparent;
-  scroll-margin-top:20px;
+  scroll-margin-top:var(--nav-offset);
 }
 .card h3, .card h4{margin:0 0 6px}
 .card p{margin:0;color:var(--muted)}
@@ -234,7 +238,7 @@ a.card:hover{
 .aside-panel strong{color:var(--navy)}
 
 /* CONTACT & INFOS */
-.section-title{font-size:20px;color:var(--navy);margin:0 0 12px}
+.section-title{font-size:20px;color:var(--navy);margin:0 0 12px;scroll-margin-top:var(--nav-offset)}
 .info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px;margin-top:0}
 .contact-card{padding:20px;border-radius:12px;background:#fff;box-shadow:0 8px 20px rgba(10,20,25,0.04)}
 .testimonials{display:grid;gap:10px}
@@ -277,7 +281,7 @@ footer .social{margin-top:8px}
 .cabinet-intro p:last-child{margin-bottom:0}
 
 /* Bloc "Cayeux-sur-Mer" / "Abbeville" fusionnés dans une même section */
-.cabinet-block{margin-bottom:36px;scroll-margin-top:20px}
+.cabinet-block{margin-bottom:36px;scroll-margin-top:var(--nav-offset)}
 .cabinet-block:last-child{margin-bottom:0}
 
 /* ENTREPRISE.HTML COMPONENTS */
