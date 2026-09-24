@@ -125,27 +125,31 @@ header{
   position:absolute;
   top:0;
   bottom:0;
-  width:30px;
+  width:40px;
   display:flex;
   align-items:center;
   font-weight:600;
-  color:var(--navy);
+  color:var(--muted);
   pointer-events:none;
   opacity:0;
   transition:opacity .2s ease;
 }
+/* Le fondu doit masquer complètement le texte du lien avant l'endroit où
+   la flèche s'affiche, sinon les deux se chevauchent visuellement (ex.
+   "...Sensibilisation" tronqué juste sous le ">", illisible). Fondu qui
+   finit tôt (45%) + zone opaque large derrière la flèche. */
 .nav-arrow--right{
   right:0;
   justify-content:flex-end;
-  padding-right:6px;
-  background:linear-gradient(to right, transparent, var(--bg) 65%);
+  padding-right:8px;
+  background:linear-gradient(to right, transparent, var(--bg) 45%);
   border-radius:0 12px 12px 0;
 }
 .nav-arrow--left{
   left:0;
   justify-content:flex-start;
-  padding-left:6px;
-  background:linear-gradient(to left, transparent, var(--bg) 65%);
+  padding-left:8px;
+  background:linear-gradient(to left, transparent, var(--bg) 45%);
   border-radius:12px 0 0 12px;
 }
 .nav-wrap.can-scroll-right .nav-arrow--right,
@@ -164,9 +168,12 @@ header{
   align-items:start;
   margin-bottom:0;
 }
-/* le panneau latéral suit la lecture : plus d'espace vide sous les horaires */
+/* le panneau latéral suit la lecture : plus d'espace vide sous les horaires.
+   top doit tenir compte du bandeau de nav sticky (~57px) : avec un simple
+   24px, le panneau "Horaires" se figeait partiellement caché sous le
+   bandeau pendant le défilement. */
 @media(min-width:981px){
-  .hero .aside{position:sticky;top:24px}
+  .hero .aside{position:sticky;top:var(--nav-offset)}
 }
 .hero-card{
   background:#fff;
